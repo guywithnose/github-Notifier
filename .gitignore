@@ -1,0 +1,8 @@
+config
+bin/
+coverage/
+docs/
+*.class
+*.swp
+build/
+manifest.mf
