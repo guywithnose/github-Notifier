@@ -70,6 +70,31 @@ public class Config
   }
   
   /**
+   * Gets the array.
+   * 
+   * @param key
+   *          the key
+   * @return the array
+   */
+  public static String[] getArray(String key)
+  {
+    try
+    {
+      initialize();
+      String[] value = new String[config.getJSONArray(key).length()];
+      for(int i = 0; i < config.getJSONArray(key).length(); i++)
+      {
+        value[i] = config.getJSONArray(key).getString(i);
+      }
+      return value;
+    } catch (JSONException e)
+    {
+      e.printStackTrace();
+      return null;
+    }
+  }
+  
+  /**
    * Checks for.
    *
    * @param key the key

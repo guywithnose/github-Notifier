@@ -4,8 +4,6 @@
 package githubnotifier;
 
 import java.awt.Component;
-import java.awt.GridLayout;
-
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -71,7 +69,7 @@ public class CommentPanel extends JPanel {
       if(newMostRecentComment != null && !newMostRecentComment.equals(mostRecentComment))
       {
         mostRecentComment = newMostRecentComment;
-        Runtime.getRuntime().exec(new String[]{"bash","-c","zenity --info --text 'New github comment'"});
+        Runtime.getRuntime().exec(Config.getArray("command"));
       }
     } catch (Exception e) {
       e.printStackTrace();
