@@ -11,10 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-import org.json.JSONArray;
-
-import data.JavaCurl;
-
 /**
  * The Class MainWindow.
  */
@@ -26,6 +22,9 @@ public class MainWindow extends JFrame
 
   /** The repo panel. */
   public JPanel repoPanel;
+
+  /** The comment panel. */
+  public JPanel commentPanel;
 
   /**
    * The Class closeListener.
@@ -96,18 +95,8 @@ public class MainWindow extends JFrame
   public void showRepoEvents(String repoName)
   {
     remove(repoPanel);
-    try
-    {
-      JSONArray eventData = new JSONArray(
-          JavaCurl.getUrl("https://api.github.com/repos/"
-              + Config.get("userName") + "/" + repoName
-              + "/events?access_token=" + Config.get("accessToken")));
-      System.out.println(eventData.toString(4));
-      repaint();
-    } catch (Exception e)
-    {
-      e.printStackTrace();
-    }
+    add(commentPanel = new CommentPanel(repoName));
+    commentPanel.revalidate();
   }
 
 }
