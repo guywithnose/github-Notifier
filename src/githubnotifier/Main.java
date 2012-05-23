@@ -18,7 +18,7 @@ public class Main implements Runnable
   public void run()
   {
     window.pack();
-    window.setSize(200,100);
+    window.setSize(500,500);
     window.setVisible(true);
   }
 
