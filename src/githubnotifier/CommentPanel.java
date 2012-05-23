@@ -80,7 +80,7 @@ public class CommentPanel extends JPanel {
   
     public Updater()
     {
-      // Do Nothing
+      // I'm thinking we should test this
     }
 
     @Override
