@@ -56,10 +56,8 @@ public class CommentPanel extends JPanel {
             && event.getJSONObject("payload").has("comment")) {
           String body = event.getJSONObject("payload").getJSONObject("comment")
               .getString("body");
-          String date = event.getJSONObject("payload")
-              .getJSONObject("comment").getString("updated_at");
           if(newMostRecentComment == null)
-            newMostRecentComment = date;
+            newMostRecentComment = body;
           add(new JLabel(body));
           numLabels++;
         }
@@ -69,7 +67,7 @@ public class CommentPanel extends JPanel {
       if(newMostRecentComment != null && !newMostRecentComment.equals(mostRecentComment))
       {
         mostRecentComment = newMostRecentComment;
-        Runtime.getRuntime().exec(Config.getArray("command"));
+        new NotificationWindow(newMostRecentComment);
       }
     } catch (Exception e) {
       e.printStackTrace();

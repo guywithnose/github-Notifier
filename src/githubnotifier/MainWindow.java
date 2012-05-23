@@ -18,13 +18,13 @@ public class MainWindow extends JFrame
 {
 
   /** The authentication panel. */
-  public JPanel authenticationPanel;
+  private JPanel authenticationPanel;
 
   /** The repo panel. */
-  public JPanel repoPanel;
+  private JPanel repoPanel;
 
   /** The comment panel. */
-  public JPanel commentPanel;
+  private JPanel commentPanel;
 
   /**
    * The Class closeListener.

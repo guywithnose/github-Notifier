@@ -1,9 +1,4 @@
 {
-  "command": [
-    	"bash",
-    	"-c",
-    	"zenity --info --text 'New github comment'"
-  	],
   "client_id" = "<CLIENT_ID>",
   "client_secret" = "<CLIENT_SECRET>"
 }
