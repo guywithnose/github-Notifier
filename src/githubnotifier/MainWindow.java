@@ -84,6 +84,7 @@ public class MainWindow extends JFrame
     remove(authenticationPanel);
     add(repoPanel = new RepoPanel());
     repoPanel.revalidate();
+    repaint();
   }
 
   /**
@@ -97,6 +98,7 @@ public class MainWindow extends JFrame
     remove(repoPanel);
     add(commentPanel = new CommentPanel(repoName));
     commentPanel.revalidate();
+    repaint();
   }
 
 }

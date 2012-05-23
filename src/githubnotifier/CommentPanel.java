@@ -3,7 +3,10 @@
  */
 package githubnotifier;
 
+import java.awt.Component;
 import java.awt.GridLayout;
+
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.json.JSONArray;
@@ -31,7 +34,7 @@ public class CommentPanel extends JPanel {
   public CommentPanel(String RepoName) {
     super();
     repoName = RepoName;
-    setLayout(new GridLayout(9, 2));
+    setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     getComments();
     Thread updater = new Thread(new Updater());
     updater.start();
@@ -42,6 +45,7 @@ public class CommentPanel extends JPanel {
    */
   void getComments() {
     try {
+      clearLabels();
       String newMostRecentComment = null;
       JSONArray eventData = new JSONArray(
           JavaCurl.getUrl("https://api.github.com/repos/"
@@ -59,7 +63,6 @@ public class CommentPanel extends JPanel {
           if(newMostRecentComment == null)
             newMostRecentComment = date;
           add(new JLabel(body));
-          add(new JLabel(date));
           numLabels++;
         }
       }
@@ -73,6 +76,16 @@ public class CommentPanel extends JPanel {
     } catch (Exception e) {
       e.printStackTrace();
     }
+    revalidate();
+  }
+
+  private void clearLabels()
+  {
+    for(Component c : getComponents())
+    {
+      if(c instanceof JLabel)
+        remove(c);
+    }    
   }
 
   private class Updater implements Runnable
