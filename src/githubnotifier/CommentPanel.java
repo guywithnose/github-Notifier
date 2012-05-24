@@ -73,6 +73,7 @@ public class CommentPanel extends JPanel {
       e.printStackTrace();
     }
     revalidate();
+    repaint();
   }
 
   private void clearLabels()

@@ -25,6 +25,10 @@ public class NotificationWindow extends JFrame
     pack();
     setSize(400,90);
     setVisible(true);
+    setAlwaysOnTop(true);
+    requestFocus();
+    toFront();
+    repaint();
   }
 
 }
