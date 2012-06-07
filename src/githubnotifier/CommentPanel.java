@@ -46,6 +46,7 @@ public class CommentPanel extends JPanel {
       clearLabels();
       String newMostRecentComment = null;
       JSONArray eventData = new JSONArray(
+              //https://api.github.com/users/guywithnose/events/orgs/dominionenterprises?access_token=
           JavaCurl.getUrl("https://api.github.com/repos/"
               + Config.get("userName") + "/" + repoName
               + "/events?access_token=" + Config.get("accessToken")));
